@@ -1,11 +1,53 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro'; 
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Allisson Magaña | Futura Pediatra">
+    
+    <div class="hero-section">
+        <p class="etiqueta">PORTAFOLIO</p>
+        <h1 class="fuente-titulo-principal">ALLISSON MAGAÑA</h1>
+        <p class="subtitulo">Futura pediatra</p>
+    </div>
 </Layout>
+
+<style>
+    .hero-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; 
+        width: 100%;
+        text-align: center;
+    }
+
+    .etiqueta {
+        color: var(--color-texto-oscuro);
+        font-size: 1.2rem; 
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.2em;
+    }
+
+    h1 {
+        color: var(--color-texto-claro); 
+        font-size: 5rem; 
+        line-height: 1;
+        margin: 0;
+        text-transform: uppercase;
+        
+        /* Efecto de borde/brillo (puedes ajustar los colores en global.css) */
+        text-shadow: 
+            2px 2px var(--color-fondo-principal), 
+            -2px -2px var(--color-fondo-principal),
+            2px -2px var(--color-fondo-principal),
+            -2px 2px var(--color-fondo-principal);
+    }
+    
+    .subtitulo {
+        color: var(--color-texto-oscuro);
+        font-size: 2rem; 
+        margin-top: 1rem;
+    }
+</style>

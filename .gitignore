@@ -1,24 +1,43 @@
-# build output
-dist/
+/* src/styles/global.css */
 
-# generated types
-.astro/
+/* Reset Básico */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-# dependencies
-node_modules/
+/* Variables CSS para Colores */
+:root {
+    /* Color lila principal de tu portada (Fondo general) */
+    --color-fondo-principal: #e6e0f8; 
+    
+    /* El color del texto principal (ALLISSON MAGAÑA) */
+    --color-texto-claro: #f4f4f4; 
+    
+    /* El color del texto secundario (PORTAFOLIO, Futura pediatra) */
+    --color-texto-oscuro: #8a7fa6;
+    
+    /* Color para la navegación (ej. un morado oscuro para contraste) */
+    --color-navegacion: #5d3587;
+    
+    /* Tipografía para el texto normal */
+    --font-normal: sans-serif;
+    
+    /* Tipografía para los títulos (usando una fuente juguetona de ejemplo) */
+    --font-titulo: 'Comic Sans MS', cursive, sans-serif;
+}
 
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+/* Estilos de Body (Aplica el fondo y fuente base) */
+body {
+    background-color: var(--color-fondo-principal);
+    font-family: var(--font-normal); 
+    line-height: 1.5;
+}
 
-# environment variables
-.env
-.env.production
-
-# macOS-specific files
-.DS_Store
-
-# jetbrains setting folder
-.idea/
+/* Clase para aplicar la fuente especial a tu nombre */
+.fuente-titulo-principal {
+    font-family: var(--font-titulo);
+    letter-spacing: 0.05em;
+    font-weight: 800;
+}

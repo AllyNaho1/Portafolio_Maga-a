@@ -1,0 +1,28 @@
+/* src/styles/global.css */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-fondo-principal: #e6e0f8; 
+    --color-texto-claro: #f4f4f4; 
+    --color-texto-oscuro: #8a7fa6;
+    --color-navegacion: #5d3587;
+    --font-normal: sans-serif;
+    --font-titulo: 'Comic Sans MS', cursive, sans-serif; 
+}
+
+body {
+    background-color: var(--color-fondo-principal);
+    font-family: var(--font-normal); 
+    line-height: 1.5;
+}
+
+.fuente-titulo-principal {
+    font-family: var(--font-titulo);
+    letter-spacing: 0.05em;
+    font-weight: 800;
+}
