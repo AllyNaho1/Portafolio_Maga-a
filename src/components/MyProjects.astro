@@ -1,0 +1,222 @@
+---
+const projects = [
+  {
+    name: "RESISEARCH",
+    image: "/images.png/resi.jpg",
+    link: "https://www.figma.com/design/QKANgytgvXyLQ0IFxFnqra/RESISEARCH?node-id=0-1&p=f&t=TyZ3r1Tz9kmTAiuV-0",
+    id: "resi",
+    description: "RessiSearch is a real estate service that helps you find a home near your work or a place you can truly call home.",
+  },
+  {
+    name: "SEVEN",
+    image: "/images.png/seven.jpg",
+    link: "https://tu-link-seven.com",
+    id: "seven",
+    description: "SEVEN is a digital platform that promotes Salvadoran art by connecting emerging artists with cultural centers, universities, and art lovers. It offers a Virtual Art Museum where users can explore exhibitions and discover national talent.",
+  },
+  {
+    name: "YUMFULL",
+    image: "/images.png/yumfull.jpg",
+    link: "https://www.figma.com/design/gGrk0RZ27rOSAtM25Kz2wH/YumFull?node-id=0-1&p=f&t=MyBhsDRSprvYRyLG-0",
+    id: "yumfull",
+    description: "Yumfull is a digital platform that promotes Salvadoran cuisine, connecting chefs, restaurants, and food lovers through a virtual space to explore and enjoy local flavors.",
+  },
+];
+---
+
+<section class="projects-section">
+  
+  <h2 class="projects-title">MY PROJECTS</h2>
+
+  <div class="projects-grid">
+    {projects.map(project => (
+      <div class="project-card-container">
+        
+        <a href={project.link} target="_blank" class="project-card-link">
+          <div class="project-card">
+            <img 
+              src={project.image} 
+              alt={`Logo del proyecto ${project.name}`} 
+              class="project-image"
+            />
+          </div>
+        </a>
+        
+        <p 
+          class="project-name-toggle" 
+          data-project-id={project.id} 
+          data-description={project.description}
+        >
+          {project.name}
+        </p>
+
+      </div>
+    ))}
+  </div>
+
+  <div id="project-description-box" class="description-box hidden">
+    <p id="description-text"></p>
+    <button id="close-description">X</button>
+  </div>
+  
+</section>
+
+<style>
+  :root {
+    --color-project-bg: #f9eefd;
+    --color-project-card-bg: white;
+    --color-project-title: #4a1f50;
+    --color-project-text: #623a66;
+    --color-button-dark: #332d43;
+  }
+  
+  .projects-section {
+    padding: 80px 40px;
+    background-color: var(--color-project-bg);
+    text-align: center;
+  }
+
+  .projects-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--color-project-title);
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    font-family: 'MiFuenteEspecial', cursive;
+  }
+
+  .projects-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .project-card-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 280px;
+  }
+
+  .project-card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      width: 100%;
+  }
+
+  .project-card {
+    background-color: var(--color-project-card-bg);
+    border-radius: 20px;
+    padding: 20px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .project-image {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+  }
+
+  .project-name-toggle {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-project-text);
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+    font-family: 'MiFuenteEspecial', cursive;
+  }
+  
+  .project-name-toggle:hover {
+      color: var(--color-button-dark);
+      border-bottom: 2px solid var(--color-button-dark);
+  }
+
+  .description-box {
+    background-color: var(--color-button-dark);
+    color: white;
+    padding: 25px;
+    margin-top: 40px;
+    border-radius: 15px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .description-box.hidden {
+      display: none;
+  }
+  
+  #description-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-right: 30px;
+  }
+
+  #close-description {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+      .projects-grid {
+          gap: 20px;
+      }
+      .project-card-container {
+          width: 80%;
+          max-width: 300px;
+      }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggles = document.querySelectorAll('.project-name-toggle');
+    const box = document.getElementById('project-description-box');
+    const text = document.getElementById('description-text');
+    const closeButton = document.getElementById('close-description');
+
+    toggles.forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        const description = e.target.getAttribute('data-description');
+        const projectName = e.target.textContent.trim();
+        
+        text.innerHTML = `<strong>${projectName}:</strong> ${description}`;
+        box.classList.remove('hidden');
+        
+        box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    });
+    
+    closeButton.addEventListener('click', () => {
+      box.classList.add('hidden');
+    });
+  });
+</script>

@@ -1,15 +1,28 @@
 ---
-// src/pages/index.astro
-import Layout from '../layouts/Layout.astro'; 
+import Layout from '../layouts/Layout.astro';
+import AboutMe from '../components/AboutMe.astro';
+import MyPassion from '../components/MyPassion.astro';
+import MyProjects from '../components/MyProjects.astro';
+import MyAchiv from '../components/MyAchiv.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Allisson Magaña | Futura Pediatra">
     
-    <div class="hero-section">
-        <p class="etiqueta">PORTAFOLIO</p>
-        <h1 class="fuente-titulo-principal">ALLISSON MAGAÑA</h1>
-        <p class="subtitulo">Futura pediatra</p>
-    </div>
+    <main>
+        <div class="hero-section">
+            <p class="etiqueta">PORTAFOLIO</p>
+            <h1 class="fuente-titulo-principal">ALLISSON MAGAÑA</h1>
+            <p class="subtitulo">Futura pediatra</p>
+        </div>
+    </main>
+    
+    <AboutMe />
+    <MyPassion />
+    <MyProjects />
+    <MyAchiv />
+    <Footer />
+
 </Layout>
 
 <style>
@@ -18,36 +31,34 @@ import Layout from '../layouts/Layout.astro';
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        min-height: 100vh; 
+        min-height: 100vh;
         width: 100%;
         text-align: center;
     }
 
     .etiqueta {
         color: var(--color-texto-oscuro);
-        font-size: 1.2rem; 
+        font-size: 1.2rem;
         margin-bottom: 0.5rem;
         letter-spacing: 0.2em;
     }
 
     h1 {
-        color: var(--color-texto-claro); 
-        font-size: 5rem; 
-        line-height: 1;
-        margin: 0;
-        text-transform: uppercase;
-        
-        /* Efecto de borde/brillo (puedes ajustar los colores en global.css) */
-        text-shadow: 
-            2px 2px var(--color-fondo-principal), 
-            -2px -2px var(--color-fondo-principal),
-            2px -2px var(--color-fondo-principal),
-            -2px 2px var(--color-fondo-principal);
-    }
+    
+    color: var(--color-texto-oscuro); 
+    
+    font-size: 5rem;
+    line-height: 1;
+    margin: 0;
+    text-transform: uppercase;
+    
+
+    text-shadow: none;
+}
     
     .subtitulo {
         color: var(--color-texto-oscuro);
-        font-size: 2rem; 
+        font-size: 2rem;
         margin-top: 1rem;
     }
 </style>

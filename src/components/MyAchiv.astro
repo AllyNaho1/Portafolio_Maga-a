@@ -1,0 +1,140 @@
+---
+const achievements = [
+  {
+    name: "EXCEL",
+    image: "/images.png/Excel.png", 
+    certification: "Microsoft Office Specialist",
+    description: "Microsoft Excel Associate Certification, demonstrating fundamental skills in creating and managing spreadsheets.",
+    link: "https://www.credly.com/badges/2e3274d7-1070-4072-8fde-63cf659f5963/public_url" 
+  },
+  {
+    name: "JAVASCRIPT",
+    image: "/images.png/Java.png", 
+    certification: "IT Specialist (Pearson)",
+    description: "JavaScript Certification, validating the ability to develop programming logic and interactive web applications.",
+    link: "https://www.credly.com/badges/175db07c-e5da-46eb-94ec-05ac6c222623/public_url"
+ }
+];
+---
+
+<section class="achievements-section">
+  
+  <h2 class="achievements-title">MY ACHIEVEMENTS</h2>
+
+  <div class="achievements-grid">
+    {achievements.map(achievement => (
+      <div class="achievement-card-container">
+        
+        {/* ENVOLVEMOS LA TARJETA CON UN ENLACE */}
+        <a href={achievement.link} target="_blank" class="achievement-card-link">
+          <div class="achievement-card">
+            <img 
+              src={achievement.image} 
+              alt={`Certificación de ${achievement.name}`} 
+              class="achievement-image"
+            />
+          </div>
+        </a>
+        
+        <p class="achievement-name">{achievement.name}</p>
+
+      </div>
+    ))}
+  </div>
+  
+</section>
+
+<style>
+  :root {
+    --color-achieve-bg: #f9eefd;
+    --color-achieve-card-bg: white;
+    --color-achieve-title: white;
+    --color-achieve-text: #623a66;
+    --color-pink-soft: #f8c9d1;
+  }
+  
+  .achievements-section {
+    padding: 80px 40px;
+    background-color: var(--color-pink-soft); 
+    text-align: center;
+  }
+
+  .achievements-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--color-achieve-title); 
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    font-family: 'MiFuenteEspecial', cursive;
+    letter-spacing: 0.1em;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+  }
+
+  .achievements-grid {
+    display: flex;
+    justify-content: center;
+    gap: 80px; 
+    flex-wrap: wrap; 
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .achievement-card-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 250px; 
+  }
+
+  /* ESTILOS PARA EL ENLACE Y HOVER */
+  .achievement-card-link {
+      text-decoration: none; /* Quita el subrayado del enlace */
+      color: inherit; /* Hereda el color del texto */
+      display: block; /* Para que el enlace ocupe todo el espacio de la tarjeta */
+      width: 100%;
+  }
+
+  .achievement-card {
+    background-color: var(--color-achieve-card-bg);
+    border-radius: 10px;
+    padding: 30px;
+    height: 300px; 
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s; /* <-- TRANSICIÓN PARA EL HOVER */
+  }
+  
+  /* EFECTO HOVER: ESCALA Y SOMBRA */
+  .achievement-card:hover {
+      transform: translateY(-5px) scale(1.02); /* Ligeramente hacia arriba y un poco más grande */
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+      cursor: pointer; /* Cambia el cursor para indicar que es clicable */
+  }
+
+  .achievement-image {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .achievement-name {
+    margin-top: 20px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-achieve-text);
+    text-transform: uppercase;
+    font-family: 'MiFuenteEspecial', cursive;
+  }
+  
+  @media (max-width: 768px) {
+      .achievements-grid {
+          gap: 40px;
+      }
+      .achievement-card-container {
+          width: 80%;
+          max-width: 300px;
+      }
+  }
+</style>
